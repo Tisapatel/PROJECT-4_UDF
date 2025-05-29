@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TimeOut</title>
+    <style>
+        #countdown {
+            font-size: 2em;
+            font-weight: bold;
+            color: #4CAF50;
+            text-align: center;
+            margin-top: 20%;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .custom-alert {
+            display: none;
+            background: #222;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.5em;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px rgba(0, 255, 100, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+<div id="countdown">5</div>
+<div id="customAlert" class="custom-alert">Hello Developers! Welcome to the Code World!</div>
+
+<script>
+    let count = 5;
+    const countdownEl = document.getElementById("countdown");
+    const alertBox = document.getElementById("customAlert");
+
+    let countdown = setInterval(() => {
+        count--;
+        if (count > 0) {
+            countdownEl.textContent = count;
+        } else {
+            clearInterval(countdown);
+            countdownEl.style.display = 'none';
+            alertBox.style.display = 'block';
+        }
+    }, 1000);
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Factorial Output Centered</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .result-box {
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    .result-box h2 {
+      color: #333;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="result-box" id="output">
+  <!-- Output will be injected here -->
+</div>
+
+<script>
+  let num = parseInt(prompt("Enter num: "));
+
+  let fact = (num) => {
+    if (num <= 1) return 1;
+    return num * fact(num - 1);
+  };
+
+  if (isNaN(num) || num < 0) {
+    alert("Please enter a valid non-negative number.");
+    document.getElementById("output").innerHTML = "<h2>Invalid input!</h2>";
+  } else {
+    alert(`Factorial is ${fact(num)}`);
+    document.getElementById("output").innerHTML = `<h2>Factorial of ${num} is: ${fact(num)}</h2>`;
+  }
+</script>
+
+</body>
+</html>

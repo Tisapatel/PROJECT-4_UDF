@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alert Calculation</title>
+    <style>
+        body {
+            background: #f0f2f5;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .result-card {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .result-card h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .result-card p {
+            font-size: 1.2em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<div class="result-card" id="output">
+    <h2>Calculation Result</h2>
+    <p id="result-text">Waiting for input...</p>
+</div>
+
+<script>
+    let a = parseInt(prompt("Enter value for a: "));
+    let b = parseInt(prompt("Enter value for b: "));
+
+    function add(a, b){
+        return a + b;
+    }
+
+    function sub(a, b){
+        return a - b;
+    }
+
+    function mul(a, b){
+        return a * b;
+    }
+
+    function div(a, b){
+        if (b === 0) {
+            return "Division by zero is not allowed.";
+        }
+        return a / b;
+    }
+
+    let choice = parseFloat(prompt("Enter your choice: 1 for add, 2 for sub, 3 for mul, 4 for div"));
+
+    let outputText = "";
+
+    switch(choice){
+        case 1: 
+            outputText = `Addition of ${a} and ${b} is: ${add(a,b)}`;
+            break;
+
+        case 2: 
+            outputText = `Subtraction of ${a} and ${b} is: ${sub(a,b)}`;
+            break;
+
+        case 3: 
+            outputText = `Multiplication of ${a} and ${b} is: ${mul(a,b)}`;
+            break;
+
+        case 4: 
+            outputText = `Division of ${a} and ${b} is: ${div(a,b)}`;
+            break;
+
+        default:
+            outputText = "Invalid choice. Please enter a number between 1 and 4.";
+            break;
+    }
+
+    document.getElementById("result-text").innerText = outputText;
+    alert(outputText);
+</script>
+
+</body>
+</html>
